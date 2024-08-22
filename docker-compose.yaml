@@ -1,0 +1,13 @@
+services:
+  ? adp-test-dan3
+  : build:
+      context: .
+      target: production
+    image: adp-test-dan3
+    container_name: adp-test-dan3
+    depends_on:
+      - adp-test-dan3-postgres
+    environment:
+      APPINSIGHTS_CLOUDROLE: adp-test-dan3-local
+      APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}
+
